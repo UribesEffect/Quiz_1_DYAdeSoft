@@ -1,11 +1,9 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-    """
-    Bot Invoker
-    Quiz 1
-    Diseño y arquitectura de software
-    Santiago Uribe Luna
-    """
+    #Bot Invoker
+    #Quiz 1
+    #Diseño y arquitectura de software
+    #Santiago Uribe Luna
 
 class Command(ABC):
     """
@@ -34,8 +32,28 @@ class EncenderCommand(Command):
 	def excecute(self) -> None:
 		print(f"bot dice {self.message}")
 		
+class Hablar(Command):
+    
+	def __init__(self):
+        	self.message = 'Que onda viejooo'
+
+	def execute(self):
+		print(self.message)
+
+class Dormir(Command):
+    
+	def __init__(self):
+		self.message = 'ZzZ zZz ZzZ zZz '
+
+	def execute(self):
+		print(self.message)
+        
 class Bot:
-	def encender(self, command):
-		self.encender_comando = command
-	def apagar(self, command):
-		self.apagar_comando = command	
+	def __init__(self,command):
+		self.command = command
+
+	def set_comand(self, command):
+		self.command = command
+
+	def execute_command(self):
+		self.command.execute()
